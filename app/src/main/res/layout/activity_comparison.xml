@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wallp3"
+        android:scaleType="centerCrop"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <LinearLayout
+        android:id="@+id/year_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#80FFFFFF"
+        android:layout_below="@id/toolbar">
+
+        <Button
+            android:id="@+id/btn_prev_year"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="◀"
+            android:textSize="20sp"
+            android:background="#4CAF50"
+            android:textColor="#FFFFFF"/>
+
+        <EditText
+            android:id="@+id/et_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="ГГГГ"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="true"/>
+
+        <Button
+            android:id="@+id/btn_next_year"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="▶"
+            android:textSize="20sp"
+            android:background="#4CAF50"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_year_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2024 год"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_below="@id/year_navigation"
+        android:background="#80FFFFFF"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_year_title"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/comparison_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+</RelativeLayout>

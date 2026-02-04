@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Фоновое изображение -->
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/wallp3"
+            android:scaleType="centerCrop"/>
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/ToolbarStyle"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        <!-- Навигация по месяцам -->
+        <LinearLayout
+            android:id="@+id/month_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="#80FFFFFF"
+            android:layout_below="@id/toolbar">
+
+            <Button
+                android:id="@+id/btn_prev_month"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="◀"
+                android:textSize="20sp"
+                android:background="#4CAF50"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/et_month_year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="ММ.ГГГГ"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#000000"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"/>
+
+            <Button
+                android:id="@+id/btn_next_month"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="▶"
+                android:textSize="20sp"
+                android:background="#4CAF50"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Месяц и дата снятия показаний -->
+        <TextView
+            android:id="@+id/tv_month_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ноябрь"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_below="@id/month_navigation"
+            android:background="#80FFFFFF"/>
+
+        <!-- Дата снятия показаний -->
+        <EditText
+            android:id="@+id/et_reading_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Дата снятия показаний (дд.мм.гггг)"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_margin="10dp"
+            android:layout_below="@id/tv_month_date"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:focusable="false"
+            android:focusableInTouchMode="true"/>
+
+        <!-- СВЕТ -->
+        <LinearLayout
+            android:id="@+id/electricity_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/et_reading_date"
+            android:background="#80FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Свет"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"/>
+
+            <EditText
+                android:id="@+id/et_electricity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Показания счётчика (кВтч)"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <!-- Подсказка под полем (полупрозрачная) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Введите тариф за кВтч"
+                android:textSize="14sp"
+                android:textColor="#80000000"
+                android:padding="4dp"/>
+
+            <EditText
+                android:id="@+id/et_electricity_tariff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Тариф за кВтч"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tv_electricity_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сумма: 0.00 руб."
+                android:textSize="16sp"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <!-- ГОРЯЧАЯ ВОДА -->
+        <LinearLayout
+            android:id="@+id/hot_water_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/electricity_layout"
+            android:background="#80FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Горячая вода"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"/>
+
+            <EditText
+                android:id="@+id/et_hot_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Показания счётчика (м³)"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Введите тариф за м³"
+                android:textSize="14sp"
+                android:textColor="#80000000"
+                android:padding="4dp"/>
+
+            <EditText
+                android:id="@+id/et_hot_water_tariff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Тариф за м³"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tv_hot_water_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сумма: 0.00 руб."
+                android:textSize="16sp"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <!-- ХОЛОДНАЯ ВОДА -->
+        <LinearLayout
+            android:id="@+id/cold_water_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/hot_water_layout"
+            android:background="#80FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Холодная вода"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"/>
+
+            <EditText
+                android:id="@+id/et_cold_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Показания счётчика (м³)"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Введите тариф за м³"
+                android:textSize="14sp"
+                android:textColor="#80000000"
+                android:padding="4dp"/>
+
+            <EditText
+                android:id="@+id/et_cold_water_tariff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Тариф за м³"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tv_cold_water_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сумма: 0.00 руб."
+                android:textSize="16sp"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <!-- ГАЗ -->
+        <LinearLayout
+            android:id="@+id/gas_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/cold_water_layout"
+            android:background="#80FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Газ"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"/>
+
+            <EditText
+                android:id="@+id/et_gas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Показания счётчика (м³)"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Введите тариф за м³"
+                android:textSize="14sp"
+                android:textColor="#80000000"
+                android:padding="4dp"/>
+
+            <EditText
+                android:id="@+id/et_gas_tariff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Тариф за м³"
+                android:inputType="numberDecimal"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tv_gas_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сумма: 0.00 руб."
+                android:textSize="16sp"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <!-- Итоговая сумма -->
+        <TextView
+            android:id="@+id/tv_total_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ИТОГО: 0.00 руб."
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/gas_layout"
+            android:background="#80FFFFFF"/>
+
+        <!-- Кнопка сохранения -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"
+            android:padding="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/tv_total_cost"/>
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44173310424",
+    "project_id": "homeutility-1694b",
+    "storage_bucket": "homeutility-1694b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44173310424:android:e92c2f4c641d1f33ba5aad",
+        "android_client_info": {
+          "package_name": "com.example.homeutility"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS5Dx9H9kteC_-g0SI_qLzF9A4WTUTYIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

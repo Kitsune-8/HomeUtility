@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Оранжевый фон с 70% прозрачностью -->
+    <solid android:color="#B3FF8A24"/> <!-- #B3 = 70% прозрачности -->
+
+    <corners android:radius="12dp"/>
+    <stroke
+        android:width="2dp"
+        android:color="#FF6D00"/>
+
+    <padding
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp"/>
+</shape>

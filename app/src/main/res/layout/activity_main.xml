@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Картинка на весь экран -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallp1" />
+
+    <!-- Название приложения -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HomeUtility"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <!-- Форма авторизации -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#80FFFFFF"
+        android:padding="25dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вход в приложение"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:textColor="#333333"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="#FFFFFF"
+            android:padding="15dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            android:background="#FFFFFF"
+            android:padding="15dp"
+            android:layout_marginBottom="25dp"
+            android:textSize="16sp"/>
+
+        <!-- Полупрозрачные белые кнопки -->
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Войти"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:background="#FFFFFF"
+            android:padding="0dp"
+            android:layout_marginBottom="15dp"
+            android:alpha="0.8"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Зарегистрироваться"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:background="#FFFFFF"
+            android:padding="0dp"
+            android:layout_marginBottom="15dp"
+            android:alpha="0.8"/>
+
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Забыли пароль?"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:padding="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
